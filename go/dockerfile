@@ -12,7 +12,7 @@ WORKDIR /app
 COPY . /app/
 
 # データベースディレクトリの移動と権限の設定
-RUN mv ./db/mercari.sqlite3 /db && chown -R trainee:mercari /db
+RUN mv ./db /db && chown -R trainee:mercari /db
 
 # 依存関係のインストール
 RUN go mod tidy
