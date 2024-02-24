@@ -78,7 +78,7 @@ func addItem(c echo.Context) error {
 	if err != nil {
 		return errMessage(c, err, http.StatusBadRequest, "Unable to open database")
 	}
-	//Get categoryID
+
 	var categoryID int
 	if err := db.QueryRow("SELECT id FROM categories WHERE name==?", category).Scan(&categoryID); err != nil {
 		errMessage(c, err, http.StatusBadRequest, "Unable to get categoryID from categoryName")
