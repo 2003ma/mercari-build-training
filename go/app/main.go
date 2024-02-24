@@ -88,7 +88,7 @@ func addItem(c echo.Context) error {
 	message := fmt.Sprintf("item received: %s in %s category", name, category)
 	res = Response{Message: message}
 
-	// Save image file to ImgDir
+	
 	imageFile, err := image.Open()
 	if err != nil {
 		return errMessage(c, err, http.StatusBadRequest, "Unable to open the image")
