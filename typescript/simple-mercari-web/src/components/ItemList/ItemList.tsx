@@ -48,7 +48,7 @@ export const ItemList: React.FC<Prop> = (props) => {
   }, [reload]);
 
   return (
-    <div className="Sample">
+    <div className="ItemBox">
       {items.map((item) => {
         const imagePath=server+"/image/"+item.image
         return (

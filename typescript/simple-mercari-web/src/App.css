@@ -1,9 +1,10 @@
 .App {
   text-align: center;
+  
 }
 
 .Title {
-  background-color: #222427;
+  background-color: #1e1b1c;
   min-height: 8vh;
   display: flex;
   flex-direction: column;
@@ -14,7 +15,7 @@
 }
 
 .Listing {
-  background-color: #222427;
+  background-color: #141517;
   min-height: 8vh;
   display: flex;
   flex-direction: column;
@@ -23,51 +24,28 @@
   font-size: calc(10px + 1vmin);
   color: white;
 }
-/* 
-.ItemList {
-  background-color: #222427;
-  min-height: 8vh;
-  align-items: center; 
-  justify-content: left;
-  font-size: calc(10px + 1vmin);
-  color: white;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px; 
-  padding: 16px; 
-} */
 
-.Sample{
+
+.ItemBox {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 20px;
+  padding: 20px;
   background-color: #222427;
-  width:100%;
-  display:flex;
-  flex-wrap:wrap;/* これを指定する */
-  
+  color: white;
 }
 
 .ItemList {
-  width:100%;
-  display:flex;
-  flex-wrap:wrap;/* これを指定する */
-  background-color: #222427;
-  width:calc(100%/3);/* 横幅を3等分 */
-  height:auto;
-  text-align: center;
-  
+  display: grid;
+  grid-template-rows: auto auto auto;
+  grid-gap: 10px;
 }
 
-.ItemList img{
-  width:calc(100%/3);
-  height:auto;
+.ItemList img {
+  max-width: 100%;
+  height: auto;
 }
 
-
-.ItemList p {
-  margin: 0;
-  color: white;
-  font-size: 14px;
-}
-
- 
 
 
 
