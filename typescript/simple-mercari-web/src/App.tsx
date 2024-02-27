@@ -13,6 +13,7 @@ function App() {
           <b>Simple Mercari</b>
         </p>
       </header>
+    
       <div>
         <Listing onListingCompleted={() => setReload(true)} />
       </div>

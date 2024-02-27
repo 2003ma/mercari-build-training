@@ -111,12 +111,12 @@ func addItem(c echo.Context) error {
 
 	defer db.Close()
 
-	stmt, err := db.Prepare("INSERT INTO items(name,category,image_name) VALUES (?,?,?)")
+	stmt, err := db.Prepare("INSERT INTO items(name,category,image_name) VALUES (?,?,?)")   //ここ変えた
 	if err != nil {
 		return errMessage(c, err, http.StatusBadRequest, "Unable to open database")
 	}
 	defer stmt.Close()
-	_, err = stmt.Exec(name, categoryID, imageName)
+	_, err = stmt.Exec(name, categoryID, savedImagePath)
 	if err != nil {
 		return errMessage(c, err, http.StatusBadRequest, "Unable to open database")
 	}
