@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react';
 
+
 interface Item {
   id: number;
   name: string;
   category: string;
-  image_name: string;
+  image: string;
 };
 
+
 const server = process.env.REACT_APP_API_URL || 'http://127.0.0.1:9000';
-const placeholderImage = process.env.PUBLIC_URL + '/logo192.png';
 
 interface Prop {
   reload?: boolean;
@@ -30,7 +31,7 @@ export const ItemList: React.FC<Prop> = (props) => {
       })
       .then(response => response.json())
       .then(data => {
-        console.log('GET success:', data);
+        console.log('GET success:', data.items);
         setItems(data.items);
         onLoadCompleted && onLoadCompleted();
       })
@@ -39,6 +40,7 @@ export const ItemList: React.FC<Prop> = (props) => {
       })
   }
 
+
   useEffect(() => {
     if (reload) {
       fetchItems();
@@ -46,12 +48,16 @@ export const ItemList: React.FC<Prop> = (props) => {
   }, [reload]);
 
   return (
-    <div>
+    <div className="Sample">
       {items.map((item) => {
+        const imagePath=server+"/image/"+item.image
         return (
           <div key={item.id} className='ItemList'>
-            {/* TODO: Task 1: Replace the placeholder image with the item image */}
-            <img src={placeholderImage} />
+            <img
+              src={imagePath} // ハッシュ値をファイル名として使用して画像のURLを構築
+              alt={item.name} // 画像の代替テキスト
+          
+            />
             <p>
               <span>Name: {item.name}</span>
               <br />

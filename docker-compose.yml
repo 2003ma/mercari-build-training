@@ -1,0 +1,21 @@
+services:
+  db:
+    build:
+      context: ./go
+    volumes:
+      - ./go/db:/app/db/
+      - ./go/images:/app/images/
+    ports:
+      - "9000:9000"
+    environment:
+      - FRONT_URL=http://localhost:3000
+  web:
+    build:
+      context: ./typescript/simple-mercari-web
+    ports:
+      - "3000:3000"
+    environment:
+      - REACT_APP_API_URL=http://127.0.0.1:9000
+
+    depends_on: # （８）
+      - db
