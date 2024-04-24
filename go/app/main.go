@@ -301,7 +301,7 @@ func searchItem(c echo.Context) error {
 func main() {
 	e := echo.New()
 
-	// Middleware
+
 	e.Use(middleware.Logger())
 	e.Use(middleware.Recover())
 	e.Logger.SetLevel(log.INFO)
@@ -315,7 +315,7 @@ func main() {
 		AllowMethods: []string{http.MethodGet, http.MethodPut, http.MethodPost, http.MethodDelete},
 	}))
 
-	// Routes
+
 	e.GET("/", root)
 	e.POST("/items", addItem)
 	e.POST("/category",addCategory)
@@ -325,6 +325,6 @@ func main() {
 	e.GET("/search", searchItem)
 
 
-	// Start server
+
 	e.Logger.Fatal(e.Start(":9000"))
 }
